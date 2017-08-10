@@ -37,7 +37,8 @@ public class CheeseController {
     // Post request for the form
     @RequestMapping(value = "add", method = RequestMethod.POST)
     // Handle going to pass param named cheeseName
-    public String processAddCheeseForm(@RequestParam String cheeseName){
+    public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String cheeseDesc){
+        cheeses.put(cheeseName,cheeseDesc);
         // redirect /cheese at the root
         return "redirect:";
     }
