@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http//www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title th:text="${title}">Title</title>
-</head>
+<!-- replace head with head from fragments-->
+<head th:replace="fragments:: head"></head>
 <body>
     <h1 th:text="${title}">Default Title</h1>
+    <!-- replace the navigation through templates-->
+
+    <nav th:replace="fragments :: navigation"></nav>
     <!-- if the array list cheese is empty and doesn't exist display this message -->
     <p th:unless="${cheeses} and ${cheeses.size()}">no cheeses :(</p>
-    <a href="/cheese/add">Add Cheese</a>
     <ul>
         <!-- Add thymeleaf element into what we want to repeat
          loop through the objects in the controller and then we specify cheeses as the value  -->
