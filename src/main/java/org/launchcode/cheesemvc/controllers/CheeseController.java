@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 // Changes the request map to /cheese
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class CheeseController {
 
 
-    static ArrayList<String> cheeses = new ArrayList<>();
+    static HashMap<String,String> cheeses = new HashMap<>();
 
 
     // request location is at the root
@@ -36,8 +37,8 @@ public class CheeseController {
     // Post request for the form
     @RequestMapping(value = "add", method = RequestMethod.POST)
     // Handle going to pass param named cheeseName
-    public String processAddCheeseForm(@RequestParam String cheeseName){
-        cheeses.add(cheeseName);
+    public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String cheeseDesc){
+        cheeses.put(cheeseName,cheeseDesc);
         // redirect /cheese at the root
         return "redirect:";
     }
