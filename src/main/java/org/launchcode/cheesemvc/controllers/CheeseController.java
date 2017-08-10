@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("cheese")
 public class CheeseController {
 
+    // request location is at the root
     @RequestMapping(value = "")
     public String index(){
+        // Location for the page template
         return "cheese/index";
     }
 }
