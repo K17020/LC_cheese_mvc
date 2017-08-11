@@ -43,4 +43,9 @@ public class CheeseController {
         return "redirect:";
     }
 
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String removeCheeseForm(){
+        return "cheese/remove";
+    }
+
 }
