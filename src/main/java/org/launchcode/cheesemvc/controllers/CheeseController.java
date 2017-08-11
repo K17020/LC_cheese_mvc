@@ -43,9 +43,18 @@ public class CheeseController {
         return "redirect:";
     }
 
+    // Displays page of the cheeses you can remove
     @RequestMapping(value = "remove", method = RequestMethod.GET)
-    public String removeCheeseForm(){
+    public String displayRemoveCheeseForm(Model model){
+        model.addAttribute("cheeses", cheeses); // pass the array list to the view
+        model.addAttribute("title","Remove Cheese"); // passes data into the view
         return "cheese/remove";
+    }
+    //removes cheeses from an array
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String removeCheeseForm(@RequestParam String cheeseRemove){
+        cheeses.remove(cheeseRemove);
+        return "redirect:";
     }
 
 }
