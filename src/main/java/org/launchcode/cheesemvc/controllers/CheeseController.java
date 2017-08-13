@@ -52,8 +52,11 @@ public class CheeseController {
     }
     //removes cheeses from an array
     @RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String removeCheeseForm(@RequestParam String cheeseRemove){
-        cheeses.remove(cheeseRemove);
+    public String removeCheeseForm(@RequestParam String[] cheeseRemove){
+        for (String cheese:cheeseRemove){
+            cheeses.remove(cheese);
+
+        }
         return "redirect:";
     }
 
