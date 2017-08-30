@@ -33,7 +33,16 @@ public class CheeseController {
 
     // Adds new cheese to the data class
     @RequestMapping(value = "add", method = RequestMethod.POST)
+    // This is using the cheese class to manage the post request, by matching up the name in the HTML
     public String processAddCheeseForm(@ModelAttribute Cheese newCheese) {
+
+        /* Whats going on?
+        * Cheese newCheese = new Cheese
+        * newCheese.setName(RequestParam("name"))
+        * The request param is looking for a matching name in the class to assign itself to
+        *
+
+         */
         CheeseData.add(newCheese);
         return "redirect:";
     }
