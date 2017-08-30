@@ -1,5 +1,6 @@
 package org.launchcode.cheesemvc.controllers;
 
+import org.launchcode.cheesemvc.models.Cheese;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 public class CheeseController {
 
 
-    static HashMap<String,String> cheeses = new HashMap<>();
+    static ArrayList<Cheese> cheeses = new ArrayList<>();
 
 
     // request location is at the root
@@ -38,7 +39,8 @@ public class CheeseController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     // Handle going to pass param named cheeseName
     public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String cheeseDesc){
-        cheeses.put(cheeseName,cheeseDesc);
+        Cheese newCheese = new Cheese(cheeseName,cheeseDesc);
+        cheeses.add(newCheese);
         // redirect /cheese at the root
         return "redirect:";
     }
