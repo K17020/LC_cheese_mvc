@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 
-/**
- * Created by LaunchCode
- */
 @Controller
 @RequestMapping("cheese")
 public class CheeseController {
@@ -34,12 +31,14 @@ public class CheeseController {
         return "cheese/add";
     }
 
+    // Adds new cheese to the data class
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@ModelAttribute Cheese newCheese) {
         CheeseData.add(newCheese);
         return "redirect:";
     }
 
+    // Displays the cheese from the object that you can remove
     @RequestMapping(value = "remove", method = RequestMethod.GET)
     public String displayRemoveCheeseForm(Model model) {
         model.addAttribute("cheeses", CheeseData.getAll());
@@ -47,6 +46,7 @@ public class CheeseController {
         return "cheese/remove";
     }
 
+    // Removes cheese based off the value of the cheese
     @RequestMapping(value = "remove", method = RequestMethod.POST)
     public String processRemoveCheeseForm(@RequestParam int[] cheeseIds) {
 

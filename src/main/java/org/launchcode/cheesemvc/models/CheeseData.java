@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class CheeseData {
 
+    // Holds all the cheese objects
     static ArrayList<Cheese> cheeses = new ArrayList<>();
 
     // getAll
