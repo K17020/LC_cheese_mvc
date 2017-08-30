@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http//www.thymeleaf.org">
-<!-- replace head with head from fragments-->
-<head th:replace="fragments:: head"></head>
-<body>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
 <h1 th:text="${title}">Default Title</h1>
-<!-- replace the navigation through templates-->
+
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method ="post" action="/cheese/add">
-    <input type="text" name="cheeseName"/>
-    <textarea name="cheeseDesc"/>
-    <input type="submit" value="Add Cheese"/>
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label for="name-field">Name</label>
+        <input class="form-control" id="name-field" type="text" name="name" />
+    </div>
+    <div class="form-group">
+        <label for="desc-field">Description</label>
+        <input class="form-control" id="desc-field" type="text" name="description" />
+    </div>
+    <input type="submit" value="Add Cheese" />
 </form>
 
 </body>
