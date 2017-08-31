@@ -11,6 +11,7 @@ public enum CheeseType {
 
     private final String name; // Once these objects are created they should not change hence the final
 
+    // Constructor
     CheeseType(String name) {
         this.name = name;
     }
