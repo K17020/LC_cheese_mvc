@@ -1,9 +1,19 @@
 package org.launchcode.cheesemvc.models;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Cheese {
 
-    private String name;
-    private String description;
+
+    @NotNull // Built in Java validation not null when we are validating
+    @Size(min=3,max =15) // This field has to be at least 3 char but no more then 15 char
+    private String name; // Validate this field
+
+    @NotNull
+    @Size(min=1,message = "This field may not be empty")
+    private String description; // Validate this field
+
     private int cheeseId;
     private static int nextId = 1;
 
