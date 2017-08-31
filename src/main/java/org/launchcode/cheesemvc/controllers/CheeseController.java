@@ -2,6 +2,7 @@ package org.launchcode.cheesemvc.controllers;
 
 import org.launchcode.cheesemvc.models.Cheese;
 import org.launchcode.cheesemvc.models.CheeseData;
+import org.launchcode.cheesemvc.models.CheeseType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -23,7 +24,7 @@ public class CheeseController {
 
         model.addAttribute("cheeses", CheeseData.getAll());
         model.addAttribute("title", "My Cheeses");
-
+        model.addAttribute("cheeseTypes", CheeseType.values()); // Return an array of cheese types form the enum class
         return "cheese/index";
     }
 
