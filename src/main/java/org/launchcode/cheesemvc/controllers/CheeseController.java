@@ -31,7 +31,7 @@ public class CheeseController {
     public String displayAddCheeseForm(Model model) {
         model.addAttribute("title", "Add Cheese");
         model.addAttribute(new Cheese()); // We are passing a skeleton object into the add view
-        model.addAttribute("cheeseTypes", CheeseType.values()); // Return an array of cheese types form the enum class
+        model.addAttribute("cheeseTypes", CheeseType.values()); // Return an array of cheese types form the enum classr
         return "cheese/add";
     }
 

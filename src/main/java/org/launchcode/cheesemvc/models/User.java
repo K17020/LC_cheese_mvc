@@ -1,23 +1,32 @@
 package org.launchcode.cheesemvc.models;
 
-public class User {
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+public class User {
     // Fields
     private String userName;
     private String email;
     private String password;
 
-    // Default Constructor
-
+    //Constructors
     public User(String userName, String email, String password) {
+        this();
         this.userName = userName;
         this.email = email;
         this.password = password;
     }
-    // Constructors
 
+    //Default constructor, when thee object is create
+    public User() {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+    }
+    //Methods
 
-    // Setter & Getters
+    //GET/SET
+
     public String getUserName() {
         return userName;
     }
