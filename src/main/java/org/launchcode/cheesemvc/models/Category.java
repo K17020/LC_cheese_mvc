@@ -28,6 +28,7 @@ public class Category {
     }
 
     // Constructor required for Spring Boot
+    // This is the default constructor
     public Category() { }
 
     // Setters and Getters
