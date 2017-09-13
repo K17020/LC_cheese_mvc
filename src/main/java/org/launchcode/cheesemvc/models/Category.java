@@ -19,11 +19,12 @@ public class Category {
     // Basic Validation
     @NotNull
     @Size(min = 3,max = 15)
-    private Stirng name;
+    private String name;
 
     // Constructors
 
-    public Category(Stirng name) {
+
+    public Category(String name) {
         this.name = name;
     }
 
@@ -36,11 +37,11 @@ public class Category {
         return id;
     }
 
-    public Stirng getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Stirng name) {
+    public void setName(String name) {
         this.name = name;
     }
 }
