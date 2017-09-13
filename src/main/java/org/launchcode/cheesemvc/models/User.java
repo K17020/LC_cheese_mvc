@@ -5,8 +5,14 @@ import javax.validation.constraints.Size;
 
 public class User {
     // Fields
+    @NotNull
+    @Size(min = 1, max = 15)
     private String userName;
+
     private String email;
+
+    @NotNull
+    @Size(min=1, max = 15)
     private String password;
 
     //Constructors
