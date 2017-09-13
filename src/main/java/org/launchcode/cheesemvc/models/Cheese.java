@@ -1,10 +1,20 @@
 package org.launchcode.cheesemvc.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Entity // Tells spring boot I want to store this in a database and makes the connection
+// Each one of the fields should be store in a table in this class
 public class Cheese {
 
+    // This is the primary key and it needs to be unique in the database
+    // Doesn't need setter because it shouldn't be changed outside of this class
+    @Id
+    @GeneratedValue
+    private int id;
 
     @NotNull // Built in Java validation not null when we are validating
     @Size(min=3,max =15) // This field has to be at least 3 char but no more then 15 char
@@ -16,27 +26,18 @@ public class Cheese {
 
     private CheeseType type;
 
-    private int cheeseId;
-    private static int nextId = 1;
-
     public Cheese(String name, String description) {
-        this(); // Calls the default constructor
         this.name = name;
         this.description = description;
     }
 
     // This is the default constructor
     public Cheese() {
-        cheeseId = nextId; // Assign the default field in the id
-        nextId++; // Adds 1 each time and object is created from the class
+
     }
 
-    public int getCheeseId() {
-        return cheeseId;
-    }
-
-    public void setCheeseId(int cheeseId) {
-        this.cheeseId = cheeseId;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
