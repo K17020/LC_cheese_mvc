@@ -1,5 +1,6 @@
 package org.launchcode.cheesemvc.controllers;
 
+import org.launchcode.cheesemvc.models.Category;
 import org.launchcode.cheesemvc.models.Cheese;
 import org.launchcode.cheesemvc.models.data.CategoryDao;
 import org.launchcode.cheesemvc.models.data.CheeseDao;
@@ -46,7 +47,7 @@ public class CheeseController {
     // Adds new cheese to the data class
     @RequestMapping(value = "add", method = RequestMethod.POST)
     // This is using the cheese class to manage the post request, by matching up the name in the HTML
-    public String processAddCheeseForm(@ModelAttribute @Valid Cheese newCheese, Errors errors, Model model) {
+    public String processAddCheeseForm(@ModelAttribute @Valid Cheese newCheese, Errors errors, @RequestParam int categoryId, Model model) {
         //@Valid is specified in the Cheese class
         // Error is made available if there is an error and is made when there is an error
 
@@ -61,8 +62,11 @@ public class CheeseController {
         * newCheese.setName(RequestParam("name"))
         * The request param is looking for a matching name in the class to assign itself to
         *
+        */
 
-         */
+        //Process the form an assign the category object to the ID to the cheese
+        Category cat = categoryDao.findOne(categoryId);
+        newCheese.setCategory(cat);
         cheeseDao.save(newCheese); // Saves new objects into the database based off the fields
         return "redirect:";
     }
