@@ -1,6 +1,7 @@
 package org.launchcode.cheesemvc.controllers;
 
 import org.launchcode.cheesemvc.models.Cheese;
+import org.launchcode.cheesemvc.models.data.CategoryDao;
 import org.launchcode.cheesemvc.models.data.CheeseDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,9 @@ public class CheeseController {
     // Auto wire says that the framework is going to create an instance of the class
     private CheeseDao cheeseDao;
 
+    @Autowired
+    private CategoryDao categoryDao;
+
     // Request path: /cheese
     @RequestMapping(value = "")
     public String index(Model model) {
@@ -35,7 +39,7 @@ public class CheeseController {
     public String displayAddCheeseForm(Model model) {
         model.addAttribute("title", "Add Cheese");
         model.addAttribute(new Cheese()); // We are passing a skeleton object into the add view
-        model.addAttribute("cheeseTypes", CheeseType.values()); // Return an array of cheese types form the enum classr
+        model.addAttribute("categories", categoryDao.findAll()); // Return an array of cheese types form the enum classr
         return "cheese/add";
     }
 
