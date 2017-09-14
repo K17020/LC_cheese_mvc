@@ -3,6 +3,7 @@ package org.launchcode.cheesemvc.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,7 +25,9 @@ public class Cheese {
     @Size(min=1,message = "This field may not be empty")
     private String description; // Validate this field
 
-    private CheeseType type;
+    // Hibernate will create a column under the category ID and link the two data bases with each other
+    @ManyToOne
+    private Category category;
 
     public Cheese(String name, String description) {
         this.name = name;
