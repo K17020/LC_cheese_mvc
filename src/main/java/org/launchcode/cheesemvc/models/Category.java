@@ -28,7 +28,6 @@ public class Category {
 
     // Constructors
 
-
     public Category(String name) {
         this.name = name;
     }
@@ -49,4 +48,9 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Cheese> getCheeses() {
+        return cheeses;
+    }
+
 }
