@@ -23,13 +23,6 @@ public class Menu {
     @ManyToMany
     private List<Cheese> cheeses;
 
-
-    // Constructors
-
-    public Menu(String name) {
-        this.name = name;
-    }
-
     // Default constructor
     public Menu() {
     }
